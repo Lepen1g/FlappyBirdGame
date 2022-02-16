@@ -1,4 +1,4 @@
-package com.rainbow.bird.utils
+package com.rainbow.bird.viewmodel
 
 
 import android.app.Application
@@ -7,6 +7,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.rainbow.bird.model.*
+import com.rainbow.bird.utils.DensityUtil
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow

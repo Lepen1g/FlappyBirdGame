@@ -11,7 +11,7 @@ import com.rainbow.bird.model.GameAction
 import com.rainbow.bird.model.PipeResetThreshold
 import com.rainbow.bird.model.PreviewPipeState
 import com.rainbow.bird.model.ViewState
-import com.rainbow.bird.utils.GameViewModel
+import com.rainbow.bird.viewmodel.GameViewModel
 
 
 @Composable

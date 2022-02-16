@@ -30,7 +30,7 @@ fun ScoreBoard(
 
     when (state.gameStatus) {
         GameStatus.Running -> RealTimeBoard(modifier, state.score)
-        GameStatus.Over -> GameOverBoard(modifier, state.score, state.bestScore, clickable)
+        GameStatus.Dying -> GameOverBoard(modifier, state.score, state.bestScore, clickable)
         else -> {}
     }
 }

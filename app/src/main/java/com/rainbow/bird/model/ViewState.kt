@@ -57,3 +57,4 @@ sealed class GameAction {
     // object Pause : GameAction()
     // object Resume : GameAction()
 }
+

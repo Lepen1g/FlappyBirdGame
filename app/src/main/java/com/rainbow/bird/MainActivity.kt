@@ -1,12 +1,12 @@
 package com.rainbow.bird
 
 import android.os.Bundle
+import android.os.Process
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
@@ -23,7 +23,7 @@ import com.rainbow.bird.model.GameStatus
 import com.rainbow.bird.ui.gameView.Clickable
 import com.rainbow.bird.ui.gameView.GameScreen
 import com.rainbow.bird.ui.theme.BirdTheme
-import com.rainbow.bird.utils.GameViewModel
+import com.rainbow.bird.viewmodel.GameViewModel
 import com.rainbow.bird.utils.StatusBarUtil
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
@@ -54,7 +54,7 @@ fun BirdGameApp() {
             val gameViewModel: GameViewModel = viewModel()
 
             // Send a auto tick action to view model and trigger game start.
-            LaunchedEffect(key1 = Unit) {
+            LaunchedEffect(Unit) {
                 while (isActive) {
                     delay(AutoTickDuration)
                     if (gameViewModel.viewState.value.gameStatus != GameStatus.Waiting) {
@@ -63,7 +63,7 @@ fun BirdGameApp() {
                 }
             }
             val lifecycleOwner = LocalLifecycleOwner.current
-            DisposableEffect(key1 = Unit) {
+            DisposableEffect(Unit) {
                 val observer = object : LifecycleObserver {
                     @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
                     fun onPause() {
@@ -97,6 +97,7 @@ fun BirdGameApp() {
                 },
 
                 onExit = {
+                    Process.killProcess(Process.myPid())
                 }
             ))
         }

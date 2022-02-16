@@ -16,7 +16,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.rainbow.bird.model.*
 import com.rainbow.bird.ui.theme.ForegroundEarthYellow
-import com.rainbow.bird.utils.GameViewModel
+import com.rainbow.bird.viewmodel.GameViewModel
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
